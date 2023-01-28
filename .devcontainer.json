@@ -1,5 +1,5 @@
 {
-	"name": "Rust Template",
+	"name": "Chapter 12",
 	"dockerComposeFile": "./docker-compose.yml",
 	"service": "rust-env",
 	"workspaceFolder": "/workspace",
