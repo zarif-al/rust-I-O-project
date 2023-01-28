@@ -1,0 +1,25 @@
+{
+	"name": "Rust Template",
+	"dockerComposeFile": "./docker-compose.yml",
+	"service": "rust-env",
+	"workspaceFolder": "/workspace",
+	"shutdownAction": "stopCompose",
+	"overrideCommand": true,
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"michelemelluso.code-beautifier",
+				"mikestead.dotenv",
+				"mhutchie.git-graph",
+				"ms-vsliveshare.vsliveshare",
+				"ms-vsliveshare.vsliveshare-audio",
+				"ms-vsliveshare.vsliveshare-pack",
+				"PKief.material-icon-theme",
+				"rust-lang.rust-analyzer",
+				"jinxdash.prettier-rust",
+				"esbenp.prettier-vscode",
+				"yzhang.markdown-all-in-one"
+			]
+		}
+	}
+}

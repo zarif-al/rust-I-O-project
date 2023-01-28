@@ -1,0 +1,28 @@
+{
+	"[jsonc]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[rust]": {
+		"editor.defaultFormatter": "jinxdash.prettier-rust"
+	},
+	"[yaml]": {
+		"editor.defaultFormatter": "jinxdash.prettier-rust"
+	},
+	"[dockercompose]": {
+		"editor.defaultFormatter": "jinxdash.prettier-rust"
+	},
+	"[dockerfile]": {
+		"editor.defaultFormatter": "jinxdash.prettier-rust"
+	},
+	// Editor Settings
+	"editor.formatOnPaste": true,
+	"editor.formatOnSave": true,
+	"editor.formatOnType": true,
+	"workbench.iconTheme": "material-icon-theme",
+	"editor.codeActionsOnSave": {
+		"source.fixAll.eslint": true
+	},
+	// Prettier
+	"prettier.useTabs": true,
+	"prettier.enableDebugLogs": true
+}
