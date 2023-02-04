@@ -20,21 +20,21 @@ impl Config {
 pub fn run(config: Config) -> Result<(), Box<dyn Error>> {
     let contents = fs::read_to_string(config.file_path)?;
 
-    for line in search(&config.query, &contents){
-        println!("{line}")
+    for line in search(&config.query, &contents) {
+        println!("{line}");
     }
 
     Ok(())
 }
 
-pub fn search<'a>(query: &str, contents: &'a str) -> Vec<&'a str>{
+pub fn search<'a>(query: &str, contents: &'a str) -> Vec<&'a str> {
     let mut result = Vec::new();
 
-    for line in contents.lines(){
+    for line in contents.lines() {
         let contains_query = line.contains(query);
 
         if contains_query {
-            result.push(line.trim())
+            result.push(line);
         }
     }
 
@@ -42,17 +42,28 @@ pub fn search<'a>(query: &str, contents: &'a str) -> Vec<&'a str>{
 }
 
 #[cfg(test)]
-mod tests{
+mod tests {
     use super::*;
 
     #[test]
-    fn one_result(){
+    fn case_sensitive_search() {
         let query = "duct";
         let contents = "\
-                        Rust:
-                        safe, fast, productive.
-                        Pick three.";
+Rust:
+safe, fast, productive.
+Pick three.
+Duct tape.";
         assert_eq!(vec!["safe, fast, productive."], search(query, contents))
+    }
 
+    #[test]
+    fn case_insensitive_search() {
+        let query = "duct";
+        let contents = "\
+Rust:
+safe, fast, productive.
+Pick three.
+Duct tape.";
+        assert_eq!(vec!["safe, fast, productive."], search(query, contents))
     }
 }
