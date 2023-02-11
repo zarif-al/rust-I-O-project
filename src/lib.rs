@@ -1,4 +1,4 @@
-use std::{ fs, error::Error, env, collections::binary_heap::Iter };
+use std::{ fs, error::Error, env };
 
 pub struct Config {
     pub query: String,
@@ -48,31 +48,17 @@ pub fn run(config: Config) -> Result<(), Box<dyn Error>> {
 }
 
 pub fn search<'a>(query: &str, contents: &'a str) -> Vec<&'a str> {
-    let mut result = Vec::new();
-
-    for line in contents.lines() {
-        let contains_query = line.contains(query);
-
-        if contains_query {
-            result.push(line);
-        }
-    }
-
-    result
+    contents
+        .lines()
+        .filter(|line| line.contains(query))
+        .collect()
 }
 
 pub fn search_case_insentive<'a>(query: &str, contents: &'a str) -> Vec<&'a str> {
-    let mut result = Vec::new();
-
-    for line in contents.lines() {
-        let contains_query = line.to_lowercase().contains(&query.to_lowercase());
-
-        if contains_query {
-            result.push(line);
-        }
-    }
-
-    result
+    contents
+        .lines()
+        .filter(|line| line.to_lowercase().contains(&query.to_lowercase()))
+        .collect()
 }
 
 #[cfg(test)]
